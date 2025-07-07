@@ -1,0 +1,82 @@
+/* --- NEW ACCENT COLOR PALETTE --- */
+:root {
+    --color-accent-orange: #D64D2B;
+    --color-accent-yellow: #F4B826;
+    --color-accent-green: #1D6348;
+}
+
+/* --- BOOTSTRAP THEME OVERRIDES --- */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #121212;
+    --bs-body-color: #e0e0e0;
+    --bs-primary: var(--color-accent-yellow);
+    --bs-primary-rgb: 244, 184, 38;
+    --bs-primary-text-emphasis: #000;
+    --bs-primary-bg-subtle: #4d3a0c;
+    --bs-primary-border-subtle: #967018;
+    --bs-tertiary-bg: #1e1e1e;
+    --bs-success: var(--color-accent-green);
+    --bs-success-rgb: 29, 99, 72;
+    --bs-success-text-emphasis: #fff;
+    --bs-success-bg-subtle: #091f16;
+    --bs-success-border-subtle: #164b36;
+    --bs-danger: var(--color-accent-orange);
+    --bs-danger-rgb: 214, 77, 43;
+    --bs-danger-text-emphasis: #fff;
+    --bs-danger-bg-subtle: #2b1009;
+    --bs-danger-border-subtle: #792c18;
+    --bs-link-color: var(--color-accent-yellow);
+    --bs-link-color-rgb: 244, 184, 38;
+    --bs-link-hover-color: #f7c752;
+    --bs-border-color: #333;
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+}
+
+/* --- SITE-WIDE STYLES --- */
+body {
+    background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+    background-attachment: fixed;
+}
+
+.navbar {
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* --- CUSTOM COMPONENT STYLES --- */
+
+/* Styles for the News Page card grid */
+.news-card-img {
+    height: 200px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.news-article {
+    background-color: var(--bs-tertiary-bg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--bs-border-radius);
+    border: 1px solid var(--bs-border-color);
+}
+
+.news-meta {
+    font-size: 0.9rem;
+    color: var(--bs-secondary-color);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Styles for the Profile Page */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    border: 2px solid var(--bs-border-color);
+}

@@ -1,2 +1,2 @@
 # NGT
-Nerdy Gamer Tools WEbsite
+Nerdy Gamer Tools
