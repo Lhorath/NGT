@@ -13,7 +13,7 @@ function validate_csrf_token() { if (!isset($_POST['csrf_token']) || !hash_equal
 generate_csrf_token();
 
 // 4. DEFINE CONSTANTS FOR LIVE SERVER
-define('BASE_URL', 'https://nerdygamertools.com/');
+define('BASE_URL', 'http://dab.nerdygamertools.com/NGT/');
 
 define('DB_HOST', 'srv1846.hstgr.io');
 define('DB_USER', 'u971098166_ngt_webdb');
