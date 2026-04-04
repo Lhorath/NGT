@@ -1,12 +1,11 @@
-# Enables the URL rewriting engine
-RewriteEngine On
+# Nerdy Gamer Tools — production: http://ngt.dackdns.ddns.net/
+# Document root = project folder (index.php, .htaccess, STYLE/, the_files/).
 
-# Set the base directory for the root domain
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteBase /
 
-# --- Conditions: Do not rewrite if it's a real file or directory ---
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# --- The Rule: Rewrite everything else to index.php ---
 RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
+</IfModule>

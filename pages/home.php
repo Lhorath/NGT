@@ -35,7 +35,12 @@
                 <?php
                     // Fetch the single latest news article to display in the card
                     $sql = "SELECT id, title, body FROM news ORDER BY publish_date DESC LIMIT 1";
-                    $result = $conn->query($sql);
+                    try {
+                        $result = $conn->query($sql);
+                    } catch (mysqli_sql_exception $e) {
+                        error_log('NGT home: ' . $e->getMessage());
+                        $result = false;
+                    }
                     if ($result && $result->num_rows > 0) {
                         $latest_post = $result->fetch_assoc();
                         $snippet = substr(strip_tags($latest_post['body']), 0, 80);

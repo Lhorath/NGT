@@ -13,12 +13,12 @@ function validate_csrf_token() { if (!isset($_POST['csrf_token']) || !hash_equal
 generate_csrf_token();
 
 // 4. DEFINE CONSTANTS FOR LIVE SERVER
-define('BASE_URL', 'http://dab.nerdygamertools.com/NGT/');
+define('BASE_URL', 'http://ngt.dackdns.ddns.net/');
 
-define('DB_HOST', 'srv1846.hstgr.io');
-define('DB_USER', 'u971098166_ngt_webdb');
-define('DB_PASS', 'co?D=2O^eE2;');
-define('DB_NAME', 'u971098166_ngt_webdb');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'ngt_webdb');
 
 // 5. ERROR REPORTING (Set for Production)
 // Set to 0 to hide errors from public users for security.
@@ -26,12 +26,28 @@ ini_set('display_errors', 0);
 error_reporting(0);
 
 // 6. CREATE DATABASE CONNECTION
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if ($conn->connect_error) {
-    // In production, you should log this error instead of showing it.
-    // For now, we die silently to prevent info leaks.
-    die("Database connection error.");
+// PHP 8.1+ throws mysqli_sql_exception on failure; uncaught exceptions become HTTP 500.
+try {
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+} catch (mysqli_sql_exception $e) {
+    error_log('NGT DB connect: ' . $e->getMessage());
+    http_response_code(503);
+    header('Content-Type: text/plain; charset=UTF-8');
+    exit('Database connection error.');
 }
-$conn->set_charset("utf8mb4");
+if (!empty($conn->connect_error)) {
+    error_log('NGT DB connect: ' . $conn->connect_error);
+    http_response_code(503);
+    header('Content-Type: text/plain; charset=UTF-8');
+    exit('Database connection error.');
+}
+try {
+    $conn->set_charset('utf8mb4');
+} catch (mysqli_sql_exception $e) {
+    error_log('NGT DB charset: ' . $e->getMessage());
+    http_response_code(503);
+    header('Content-Type: text/plain; charset=UTF-8');
+    exit('Database connection error.');
+}
 
 ?>
