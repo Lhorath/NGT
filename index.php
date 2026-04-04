@@ -93,7 +93,7 @@ if (!in_array($page, $allowed_pages) || !file_exists($page_path)) {
     <footer class="mt-auto py-5 bg-dark">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0"><h5 class="text-warning">Nerdy Gamer Tools</h5><p class="text-secondary">"Bringing you what no one asked for"</p><p class="text-secondary small">&copy; <?php echo date('Y'); ?> All Rights Reserved.</p></div>
+                <div class="col-md-4 mb-4 mb-md-0"><h5 class="text-warning">Nerdy Gamer Tools</h5><p class="text-secondary small">Copyright (c) 2026 Nerdy Gamer Tools | Bringing You What No One Asked For | <a href="https://nerdygamertools.com/" class="link-secondary text-decoration-none">https://nerdygamertools.com/</a></p></div>
                 <div class="col-md-4 mb-4 mb-md-0"><h5>Quick Links</h5><ul class="list-unstyled"><li><a href="<?php echo BASE_URL; ?>news" class="link-secondary text-decoration-none">News</a></li><li><a href="<?php echo BASE_URL; ?>projects" class="link-secondary text-decoration-none">Projects</a></li><li><a href="<?php echo BASE_URL; ?>contact" class="link-secondary text-decoration-none">Contact</a></li></ul></div>
                 <div class="col-md-4"><h5>Connect</h5><div class="d-flex gap-3"><a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a><a href="#" class="footer-social-link"><i class="fab fa-github"></i></a><a href="#" class="footer-social-link"><i class="fab fa-discord"></i></a></div></div>
             </div>
