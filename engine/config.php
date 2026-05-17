@@ -15,10 +15,11 @@ generate_csrf_token();
 // 4. DEFINE CONSTANTS FOR LIVE SERVER
 define('BASE_URL', 'http://ngt.dackdns.ddns.net/');
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', '127.0.0.1');
+define('DB_USER', 'website');
+define('DB_PASS', 'dax123');
 define('DB_NAME', 'ngt_webdb');
+define('DB_PORT', 3306);
 
 // 5. ERROR REPORTING (Set for Production)
 // Set to 0 to hide errors from public users for security.
@@ -28,7 +29,7 @@ error_reporting(0);
 // 6. CREATE DATABASE CONNECTION
 // PHP 8.1+ throws mysqli_sql_exception on failure; uncaught exceptions become HTTP 500.
 try {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 } catch (mysqli_sql_exception $e) {
     error_log('NGT DB connect: ' . $e->getMessage());
     http_response_code(503);
